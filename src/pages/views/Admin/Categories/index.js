@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import apiCategory from './../../../../api/categoryApi';
 
 const CategoriesManger = ({categories}) => {
+    const[category, setCategory] = useState(categories)
     const removeHandle = async(id) => {
         const { data } = await apiCategory.remove(id);
         const newCategory = categories.filter(category => category.id !== data.id);

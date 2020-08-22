@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from "react-hook-form";
 import firebase from './../../../../firebase'
-
+import { useParams, useHistory } from 'react-router-dom';
 
 const Addproduct = ({onAdd, categories}) => {
   const { register, handleSubmit, errors } = useForm();
@@ -14,6 +14,7 @@ const Addproduct = ({onAdd, categories}) => {
   //         [name]:value
   //     });
   // }
+  let history = useHistory();
   const [desc, setDesc] = useState("");
   const onHandleSubmit = (data) => {
     console.log(data)
@@ -36,6 +37,7 @@ const Addproduct = ({onAdd, categories}) => {
         // đẩy dữ liệu ra ngoài app.js thông qua props onAdd
         onAdd(newData)
         console.log(newData);
+        history.push('/admin/products');
     })
     const handleEditorChange = (content, editor) => {
         setDesc(content);

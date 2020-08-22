@@ -29,8 +29,8 @@ const Routers = ({ products, onRemove , onAdd, productDetail, onUpdate, categori
         onAdd(products)
     }
 
-    const onHandleUpdate = (id, product) => {
-        onUpdate(id, product)
+    const onHandleUpdate = (id, products) => {
+        onUpdate(id, products)
     }
     
     const onHandleAddCate = (categories) => {
@@ -56,7 +56,7 @@ const Routers = ({ products, onRemove , onAdd, productDetail, onUpdate, categori
                                 <ProductAdd onAdd={onHandleAdd} categories={categories}/>
                             </Route>
                             <Route path='/admin/product/:id'>
-                                    <EditProduct products={products} onUpdate={onHandleUpdate} />
+                                    <EditProduct products={products} categories={categories} />
                             </Route>
                             <Route path='/admin/categories' >
                                 <CategoriesManger categories={categories} onRemove={onHandleRemove} />

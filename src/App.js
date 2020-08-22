@@ -68,13 +68,12 @@ function App() {
     }
   }
 
-  const onHandleUpdate = (updateProduct) => {
-    const newProducts = products.map(product => (
-      product.id === updateProduct.id ? updateProduct : product  // Nếu product.id bằng với id của sản phẩm vừa chỉnh sửa thì trả về mảng có object mới
-    ));
-    localStorage.setItem('products', JSON.stringify(newProducts))
-    setProducts(newProducts);
-  }
+  // const onHandleUpdate = async(id, product, updateProduct) => {
+  //   const { data } = await apiRequest.update(id,product);
+  //   const newPros = products.map(product => (
+  //     product.id === updateProduct.id ? updateProduct : product  // Nếu product.id bằng với id của sản phẩm vừa chỉnh sửa thì trả về mảng có object mới
+  //   ))
+  // }
   
   const onHandleAddCate =  async(category) => {
       const { data } = await apiCategory.create(category);
@@ -84,23 +83,14 @@ function App() {
     ])
   }
 
-  const onHandleUpdateCate = (updateCategory) => {
-    const newCates = categories.map(category => (
-      category.id === updateCategory.id ? updateCategory : category  // Nếu product.id bằng với id của sản phẩm vừa chỉnh sửa thì trả về mảng có object mới
-    ));
-    localStorage.setItem('categories', JSON.stringify(newCates))
-    setCategories(newCates);
-  }
-
   return (
     <div className="App">
       <Routers products={products} 
       onRemove={onHandleRemove} 
       onAdd={onHandleAdd} 
-      onUpdate={onHandleUpdate} 
       onAddCate={onHandleAddCate} 
       categories={categories}
-      onUpdateCate={onHandleUpdateCate} />
+       />
     </div>
   )
 
