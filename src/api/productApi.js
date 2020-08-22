@@ -9,6 +9,11 @@ const get = id => {
     return http.get(`/products/${id}`);
 };
 
+const getProCate = cate_id => {
+    console.log(cate_id);
+    return http.get(`/products?cate_id=${cate_id}`)
+}
+
 const create = data => {
     return http.post("/products", data);
 };
@@ -29,4 +34,5 @@ export default {
     create,
     update,
     remove,
+    getProCate,
 };

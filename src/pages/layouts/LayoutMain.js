@@ -7,8 +7,6 @@ import '../../assets/css/main/icomoon/style.css'
 
 export default ({ children, categories }) => {
 
-    console.log('render Main')
-    console.log(categories)
 
     return (
         <div className="user-page">

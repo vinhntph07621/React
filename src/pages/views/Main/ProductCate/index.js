@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import {useParams, Link} from 'react-router-dom'
 import apiRequest from './../../../../api/productApi';
 
 const ProductCate = ({products, categories}) => {
     let { cate_id } = useParams();
-    for(var i = 0; i < categories.length; i++){
-        const product = products.filter(product => product.cate_id == categories[i].id)
-        console.log(product)
-    }
+    const [productt, setProduct] = useState({});
+    useEffect(() => {
+      const getProduct = async () => {
+        try {
+          const { data } = await apiRequest.getProCate(cate_id);
+          setProduct(data)
+        } catch (error) { 
+  
+        }
+      }
+      getProduct()
+    }, [])
     return (
         <div>
         <div className="bg-light py-3">
@@ -51,19 +59,18 @@ const ProductCate = ({products, categories}) => {
                   </div>
                 </div>
                 <div className="row mb-5">
-                  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                        <div className="block-4 text-center border">
-                        <figure className="block-4-image">
-                          <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                        </figure>
-                        <div className="block-4-text p-4">
-                          <h3><a href="shop-single.html">ABC</a></h3>
-                          <p className="mb-0">Finding perfect t-shirt</p>
-                          <p className="text-primary font-weight-bold">$50</p>
-                        </div>
-                      </div>
+                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div className="block-4 text-center border">
+                    <figure className="block-4-image">
+                      <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                    </figure>
+                    <div className="block-4-text p-4">
+                      <h3><a href="shop-single.html">ABC</a></h3>
+                      <p className="mb-0">Finding perfect t-shirt</p>
+                      <p className="text-primary font-weight-bold">$50</p>
+                    </div>
                   </div>
-
+              </div>
                 </div>
                 <div className="row" data-aos="fade-up">
                   <div className="col-md-12 text-center">

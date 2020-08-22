@@ -26,10 +26,10 @@ const Header = ({categories}) => {
                     <li><a href="#"><span className="icon icon-person" /></a></li>
                     <li><a href="#"><span className="icon icon-heart-o" /></a></li>
                     <li>
-                      <a href="cart.html" className="site-cart">
+                      <Link to="/cart" className="site-cart">
                         <span className="icon icon-shopping_cart" />
                         <span className="count">2</span>
-                      </a>
+                      </Link>
                     </li> 
                     <li className="d-inline-block d-md-none ml-md-0"><a href="#" className="site-menu-toggle js-menu-toggle"><span className="icon-menu" /></a></li>
                   </ul>

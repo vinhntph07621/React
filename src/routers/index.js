@@ -12,12 +12,12 @@ import CategoryAdd from '../pages/views/Admin/AddCategory'
 import CategoryEdit from '../pages/views/Admin/EditCategory'
 
 
-
 //Views
 import About from '../pages/views/Main/About'
 import Home from '../pages/views/Main/Home'
 import ProductDetail from '../pages/views/Main/ProductDetail'
-import ProductCate from '../pages/views/Main/ProductCate';
+import ProductCate from '../pages/views/Main/ProductCate'
+import ShoppingCart from  '../pages/views/Main/Cart'
 
 
 const Routers = ({ products, onRemove , onAdd, productDetail, onUpdate, categories, onAddCate, onUpdateCate}) => {
@@ -85,6 +85,9 @@ const Routers = ({ products, onRemove , onAdd, productDetail, onUpdate, categori
                             </Route>
                             <Route path="/product/:id">
                                 <ProductDetail products={products}/>
+                            </Route>
+                            <Route path="/cart">
+                                <ShoppingCart products={products}/>
                             </Route>
                         </Switch>
                     </LayoutMain>

@@ -5,6 +5,7 @@ import Women from '../../../../assets/images/women.jpg'
 import Children from '../../../../assets/images/children.jpg'
 import Men from '../../../../assets/images/men.jpg'
 import Blog from '../../../../assets/images/blog_1.jpg'
+import { Link } from 'react-router-dom';
 
 const Home = ({products}) => {
     return (
@@ -118,7 +119,7 @@ const Home = ({products}) => {
                           <h3 className="mb-2"><a href={`/product/${id}`}>{name}</a></h3>
                           <p className="text-primary font-weight-bold">${price}</p>
                           <div className="block-input">
-                            <button className="btn btn-primary">Add to cart</button>
+                          <Link to="/cart"><button className="btn btn-primary">Add to cart</button></Link>
                         </div>
                         </div>
                         
